@@ -11,15 +11,16 @@ modules:
   - name: blackfennec
     buildsystem: simple
     build-commands:
-      - cp -r ./ /app/
       - install -Dm644 ./org.blackfennec.app.desktop /app/share/applications/org.blackfennec.app.desktop
       - install -Dm644 ./icon.png /app/share/icons/hicolor/128x128/apps/org.blackfennec.app.png
       - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/share/metainfo/org.blackfennec.app.metainfo.xml
-      - pip3 install /app
+      - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/org.blackfennec.app.metainfo.xml
       - install -D run.sh /app/bin/run.sh
+      - pip install --prefix=${FLATPAK_DEST} .
+      - pip install --prefix=${FLATPAK_DEST} extensions/core
+      - pip install --prefix=${FLATPAK_DEST} extensions/base
     sources:
       - type: git
         url: https://gitlab.ost.ch/blackfennec/blackfennec.git
-        tag: v0.8.1
-        commit: 1462fa4d008053fad0c46673c974cac908dc364d
-        
+        tag: v0.9.0
+        commit: 63b35b4e2997612f1dd327d9aca16e6c71d6d094

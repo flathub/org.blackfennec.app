@@ -22,5 +22,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.ost.ch/blackfennec/blackfennec.git
-        tag: v0.9.0
-        commit: e674fb503527ee608b4b6e388923b7b4a0a3d94a
+        tag: v0.10.0
+        commit: 3659842e300c0cd3c21ef674c4c851c8508cea40

@@ -1,8 +1,16 @@
 app-id: org.blackfennec.app
-branch: '0.10'
+branch: stable
 runtime: org.gnome.Platform
 runtime-version: '43'
 sdk: org.gnome.Sdk
+add-extensions:
+  org.blackfennec.extensions:
+    version: '0.10'
+    directory: extensions
+    merge-dirs: lib/python3.10/site-packages/
+    subdirectories: true
+    no-autodownload: true
+    autodelete: true
 command: run.sh
 finish-args:
   - "--socket=wayland"
@@ -25,3 +33,5 @@ modules:
         url: https://gitlab.ost.ch/blackfennec/blackfennec.git
         tag: v0.10.0
         commit: 3659842e300c0cd3c21ef674c4c851c8508cea40
+    post-install:
+      - "install -d ${FLATPAK_DEST}/extensions"

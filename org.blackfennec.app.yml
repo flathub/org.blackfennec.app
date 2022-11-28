@@ -4,7 +4,7 @@ runtime: org.gnome.Platform
 runtime-version: '43'
 sdk: org.gnome.Sdk
 add-extensions:
-  org.blackfennec.extensions:
+  org.blackfennec.app.extensions:
     version: '0.10'
     directory: extensions
     merge-dirs: lib/python3.10/site-packages/

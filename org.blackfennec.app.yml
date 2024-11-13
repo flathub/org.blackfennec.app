@@ -1,36 +1,36 @@
 app-id: org.blackfennec.app
 branch: stable
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: blackfennec
 add-extensions:
   org.blackfennec.app.extensions:
-    version: '0.11'
+    version: '0.12'
     directory: extensions
     merge-dirs: lib/python3.10/site-packages/
     subdirectories: true
     no-autodownload: false
     autodelete: true
 finish-args:
-  - "--socket=wayland"
-  - "--socket=fallback-x11"
-  - "--share=ipc"
+- "--socket=wayland"
+- "--socket=fallback-x11"
+- "--share=ipc"
 modules:
-  - name: blackfennec
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 ./org.blackfennec.app.desktop /app/share/applications/org.blackfennec.app.desktop
-      - install -Dm644 ./icon.png /app/share/icons/hicolor/128x128/apps/org.blackfennec.app.png
-      - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/share/metainfo/org.blackfennec.app.metainfo.xml
-      - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/org.blackfennec.app.metainfo.xml
-      - install -Dm644 ./org.blackfennec.app.flatpakref /app/org.blackfennec.app.flatpakref
-      - install -D blackfennec.py ${FLATPAK_DEST}/bin/blackfennec
-      - pip install --prefix=${FLATPAK_DEST} .
-    sources:
-      - type: git
-        url: https://gitlab.ost.ch/blackfennec/blackfennec.git
-        tag: v0.11.0
-        commit: 29fd1ce1190fdbcc812f810e681848dcc5c2f146
-    post-install:
-      - install -d ${FLATPAK_DEST}/extensions
+- name: blackfennec
+  buildsystem: simple
+  build-commands:
+  - install -Dm644 ./org.blackfennec.app.desktop /app/share/applications/org.blackfennec.app.desktop
+  - install -Dm644 ./icon.png /app/share/icons/hicolor/128x128/apps/org.blackfennec.app.png
+  - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/share/metainfo/org.blackfennec.app.metainfo.xml
+  - install -Dm644 ./org.blackfennec.app.metainfo.xml /app/org.blackfennec.app.metainfo.xml
+  - install -Dm644 ./org.blackfennec.app.flatpakref /app/org.blackfennec.app.flatpakref
+  - install -D blackfennec.py ${FLATPAK_DEST}/bin/blackfennec
+  - pip install --prefix=${FLATPAK_DEST} .
+  sources:
+  - type: git
+    url: https://git.yodabyte.ch/blackfennec/blackfennec.git
+    tag: v0.12.0
+    commit: 94cdab0913a0b358691da8d67a6ffe2c01f2271b
+  post-install:
+  - install -d ${FLATPAK_DEST}/extensions

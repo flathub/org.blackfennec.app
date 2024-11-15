@@ -8,7 +8,7 @@ add-extensions:
   org.blackfennec.app.extensions:
     version: '0.12'
     directory: extensions
-    merge-dirs: lib/python3.10/site-packages/
+    merge-dirs: lib/python3.12/site-packages/
     subdirectories: true
     no-autodownload: false
     autodelete: true
